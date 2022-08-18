@@ -3,9 +3,8 @@
 Atividades desenvolvidas na disciplina de Computação Gráfica na FURB/DSC/BCC.  
 Favor utilizar as respectivas pastas para postar os trabalhos de cada unidade.  
 
-Equipe:  
-Ano-Semestre:  
-Assunto:  
+Alunos: Guilherme Fibrantz, Julio Vicente Brych e Martha Lanser Bloemer  
+Assunto: Realidade Virtual Imersiva (RVi): óculos (só mundo virtual)  
 
 ## [Atividades da Unidade 1](unidade_1 "Atividades da Unidade 1")  
 
