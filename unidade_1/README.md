@@ -6,24 +6,36 @@ Local para postar a atividade da unidade 1.
 
 ### Trabalho Correlato 1
 
-Descrição:  
+Acadêmico: Martha Lanser Bloemer  
+Comentários:  
 
-Pontos positivos:  
-
-Pontos negativos:  
+- Climb2  
+- Oculus Quest 2: hardware "rico"  
+  - será que daria para fazer o mesmo "entregável" com um hardware "pobre"  
+- Não tem luvas, mas tem os dois atuadores  
+- pode ser jogado sentado e em pé  
+- Jogo em evolução  
+- GamePlay
+- não tem retorno de tato  
 
 ### Trabalho Correlato 2
 
-Descrição:  
+Acadêmico: Guilherme Fibrantz  
+Comentários:  
 
-Pontos positivos:  
-
-Pontos negativos:  
+- Open Brush  
+- projeto da Google descontinuado  
+- comunidade pequena que tem o Oculus Quest  
+- Daria para fazer usando hardware "pobre" ... trabalho de uma equipe de RV/Ped de desenho compartilhado  
+- existia uma proposta de ter galeria virtuais em RA  
 
 ### Trabalho Correlato 3
 
-Descrição:  
+Acadêmico: Julio Vicente Brych  
+Inception VR  
 
-Pontos positivos:  
+- festas só com fones de ouvido  
+- custo e possibilidades de entretedimento enormes ... favorável para "novas" mentes  
+- Visualizador de situações  
 
-Pontos negativos:  
+<https://github.com/tecedufurb/habitat/tree/main/producao>
