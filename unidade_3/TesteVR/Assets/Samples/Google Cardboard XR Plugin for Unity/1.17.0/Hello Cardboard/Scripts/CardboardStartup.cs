@@ -34,7 +34,7 @@ public class CardboardStartup : MonoBehaviour
         // https://docs.unity3d.com/ScriptReference/Screen-brightness.html.
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Screen.brightness = 1.0f;
-
+        Debug.Log("Ola mundaoxxxxx");
         // Checks if the device parameters are stored and scans them if not.
         if (!Api.HasDeviceParams())
         {
