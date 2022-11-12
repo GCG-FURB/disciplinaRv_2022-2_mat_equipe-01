@@ -1,0 +1,34 @@
+{
+    "name": "ComtroleJogador",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "b4955ea4-fd70-4740-ad5d-176ca60dcfda",
+            "actions": [
+                {
+                    "name": "Aumentar",
+                    "type": "Button",
+                    "id": "955bccda-04c0-4f32-af3a-03c68293848a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6544f193-2b41-4e1c-9e31-0ecea3b20df4",
+                    "path": "<Mouse>/backButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aumentar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -618,6 +618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199920617}
   - component: {fileID: 1199920618}
+  - component: {fileID: 1199920619}
   m_Layer: 0
   m_Name: Treasure
   m_TagString: Untagged
@@ -744,6 +745,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1199920619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199920616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad651fc82539e204fa3fb3f1908d45eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!850595691 &1347003812
 LightingSettings:
   m_ObjectHideFlags: 0
