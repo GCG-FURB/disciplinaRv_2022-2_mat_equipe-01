@@ -35,6 +35,15 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AcionaArma"",
+                    ""type"": ""Button"",
+                    ""id"": ""e7b1bd5d-d02c-4d9a-b736-e35a0e0bdf59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,17 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
                     ""action"": ""Aumentar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4710f572-9abe-4e73-815c-76a17d89f0c8"",
+                    ""path"": ""<HID::YiChip BT KB>/button5"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AcionaArma"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +77,7 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Aumentar = m_Gameplay.FindAction("Aumentar", throwIfNotFound: true);
+        m_Gameplay_AcionaArma = m_Gameplay.FindAction("AcionaArma", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -117,11 +138,13 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Aumentar;
+    private readonly InputAction m_Gameplay_AcionaArma;
     public struct GameplayActions
     {
         private @ComtroleJogador m_Wrapper;
         public GameplayActions(@ComtroleJogador wrapper) { m_Wrapper = wrapper; }
         public InputAction @Aumentar => m_Wrapper.m_Gameplay_Aumentar;
+        public InputAction @AcionaArma => m_Wrapper.m_Gameplay_AcionaArma;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -134,6 +157,9 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
                 @Aumentar.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAumentar;
                 @Aumentar.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAumentar;
                 @Aumentar.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAumentar;
+                @AcionaArma.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAcionaArma;
+                @AcionaArma.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAcionaArma;
+                @AcionaArma.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAcionaArma;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -141,6 +167,9 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
                 @Aumentar.started += instance.OnAumentar;
                 @Aumentar.performed += instance.OnAumentar;
                 @Aumentar.canceled += instance.OnAumentar;
+                @AcionaArma.started += instance.OnAcionaArma;
+                @AcionaArma.performed += instance.OnAcionaArma;
+                @AcionaArma.canceled += instance.OnAcionaArma;
             }
         }
     }
@@ -148,5 +177,6 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnAumentar(InputAction.CallbackContext context);
+        void OnAcionaArma(InputAction.CallbackContext context);
     }
 }
