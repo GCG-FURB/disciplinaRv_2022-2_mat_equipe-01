@@ -41,7 +41,9 @@ public class CameraPointer : MonoBehaviour
             if (_gazedAtObject != hit.transform.gameObject)
             {
                 // New GameObject.
+                Debug.Log(_gazedAtObject);
                 _gazedAtObject?.SendMessage("OnPointerExit");
+                _gazedAtObject?.SendMessage("Atirar");
                 _gazedAtObject = hit.transform.gameObject;
                 _gazedAtObject.SendMessage("OnPointerEnter");
             }

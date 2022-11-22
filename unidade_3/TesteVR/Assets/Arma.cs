@@ -28,6 +28,11 @@ public class Arma : MonoBehaviour
     
   }
 
+   public void Atirar()
+    {
+        Debug.Log("Tiro");
+    }
+
   private void OnEnable() {
      controle.Gameplay.Enable();
   }
