@@ -29,17 +29,23 @@ public class Arma : MonoBehaviour
     //audioS.playOneShot();
     
   }
+  private void Diminuir()
+  {
+    this.transform.localScale *= 0.9f;
+
+  }
 
    public void SelecionaArma()
     {
         isSelecionado = true;
         Debug.Log("Tiro");
-        Aumentar();
+        //Aumentar();
     }
     public void DesselecionaArma()
     {
         Debug.Log("Saiu da arma");
         isSelecionado = false;
+        Diminuir();
     }
     public void OnPointerExit()
     {

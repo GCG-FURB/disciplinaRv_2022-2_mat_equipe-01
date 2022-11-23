@@ -5,43 +5,39 @@ using UnityEngine.UI;
 
 public class Carregamento : MonoBehaviour
 {
-    public Material inicial;
-    public Material alterado;
-    private Renderer myRenderer;
-    private bool alterar = true;
-    private bool malOlhado = false;
-    private int contador = 0;
+    private static bool malOlhado = false;
+    private static int contador = 0;
     public Image ima = null;
+    private static int passo = 500;
     void Start()
     {
-        myRenderer = GetComponent<Renderer>();
         ima.enabled = false;
     }
 
     public void EntraCarregamento()
     {
+        Debug.Log("Entro Imagen");
         malOlhado = true;
         ima.enabled = true;
     }
 
     public void SaiCarregamento()
     {
+        Debug.Log("Saio Imagen");
         malOlhado = false;
         contador = 0;
-        myRenderer.material = inicial;
         ima.enabled = false;
     }
 
     void Update()
     {
-        if(malOlhado && contador <= 100){
+        if(malOlhado && contador <= passo){
             contador += 1;
         }
-        if(contador == 99){
-            myRenderer.material = alterado;
+        if(contador == passo){
             malOlhado = false;
             contador = 0;
         }
-        ima.fillAmount = contador * 0.01f;
+        ima.fillAmount = contador * (1f/passo);
     }
 }
