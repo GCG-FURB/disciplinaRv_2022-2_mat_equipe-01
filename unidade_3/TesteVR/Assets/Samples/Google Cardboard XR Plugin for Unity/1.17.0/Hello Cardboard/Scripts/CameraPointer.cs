@@ -43,7 +43,7 @@ public class CameraPointer : MonoBehaviour
                 // New GameObject.
                 Debug.Log(_gazedAtObject);
                 _gazedAtObject?.SendMessage("OnPointerExit");
-                _gazedAtObject?.SendMessage("Atirar");
+                _gazedAtObject?.SendMessage("SelecionaArma");
                 _gazedAtObject = hit.transform.gameObject;
                 _gazedAtObject.SendMessage("OnPointerEnter");
             }
@@ -52,6 +52,7 @@ public class CameraPointer : MonoBehaviour
         {
             // No GameObject detected in front of the camera.
             _gazedAtObject?.SendMessage("OnPointerExit");
+            _gazedAtObject?.SendMessage("DesselecionaArma");
             _gazedAtObject = null;
         }
 
