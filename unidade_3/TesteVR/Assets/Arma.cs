@@ -11,41 +11,37 @@ public class Arma : MonoBehaviour
     public AudioClip soundTiro;
     private bool isSelecionado;
 
+     Carregamento car;
+
   private void Awake() {
     isSelecionado = false;
     Debug.Log("Ola arma");
     controle = new ComtroleJogador();
     //audioS = GetComponent<AudioSource>();
-
+    car = (Carregamento)gameObject.GetComponent(typeof(Carregamento));
     controle.Gameplay.AcionaArma.performed += ctx => Aumentar();
   }
 
   private void Aumentar()
   {
     Debug.Log("nao armao");
-    this.transform.localScale *= 1.1f;
+    //this.transform.localScale *= 1.1f;
 
     audioS.PlayOneShot(soundTiro);
-    //audioS.playOneShot();
+    Debug.Log("Testando interaçã entre scripts "+car.teste);
     
-  }
-  private void Diminuir()
-  {
-    this.transform.localScale *= 0.9f;
-
   }
 
    public void SelecionaArma()
     {
         isSelecionado = true;
         Debug.Log("Tiro");
-        //Aumentar();
+        Aumentar();
     }
     public void DesselecionaArma()
     {
         Debug.Log("Saiu da arma");
         isSelecionado = false;
-        Diminuir();
     }
     public void OnPointerExit()
     {

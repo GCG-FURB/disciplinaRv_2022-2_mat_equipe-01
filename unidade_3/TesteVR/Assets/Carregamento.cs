@@ -9,6 +9,8 @@ public class Carregamento : MonoBehaviour
     private static int contador = 0;
     public Image ima = null;
     private static int passo = 500;
+
+    public bool teste = false;
     void Start()
     {
         ima.enabled = false;
