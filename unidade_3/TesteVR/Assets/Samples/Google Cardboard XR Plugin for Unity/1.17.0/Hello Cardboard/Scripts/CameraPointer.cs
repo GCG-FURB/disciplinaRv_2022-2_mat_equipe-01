@@ -43,14 +43,17 @@ public class CameraPointer : MonoBehaviour
                 // New GameObject.
                 Debug.Log(_gazedAtObject);
                 _gazedAtObject?.SendMessage("OnPointerExit");
+                _gazedAtObject.SendMessage("SaiCarregamento");
                 _gazedAtObject?.SendMessage("Atirar");
                 _gazedAtObject = hit.transform.gameObject;
                 _gazedAtObject.SendMessage("OnPointerEnter");
+                _gazedAtObject.SendMessage("EntraCarregamento");
             }
         }
         else
         {
             // No GameObject detected in front of the camera.
+            _gazedAtObject?.SendMessage("SaiCarregamento");
             _gazedAtObject?.SendMessage("OnPointerExit");
             _gazedAtObject = null;
         }

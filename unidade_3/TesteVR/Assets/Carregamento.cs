@@ -18,13 +18,13 @@ public class Carregamento : MonoBehaviour
         ima.enabled = false;
     }
 
-    public void OnPointerEnter()
+    public void EntraCarregamento()
     {
         malOlhado = true;
         ima.enabled = true;
     }
 
-    public void OnPointerExit()
+    public void SaiCarregamento()
     {
         malOlhado = false;
         contador = 0;
