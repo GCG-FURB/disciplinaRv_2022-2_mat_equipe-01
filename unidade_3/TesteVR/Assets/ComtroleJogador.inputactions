@@ -6,15 +6,6 @@
             "id": "b4955ea4-fd70-4740-ad5d-176ca60dcfda",
             "actions": [
                 {
-                    "name": "Aumentar",
-                    "type": "Button",
-                    "id": "955bccda-04c0-4f32-af3a-03c68293848a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "AcionaArma",
                     "type": "Button",
                     "id": "e7b1bd5d-d02c-4d9a-b736-e35a0e0bdf59",
@@ -25,17 +16,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "6544f193-2b41-4e1c-9e31-0ecea3b20df4",
-                    "path": "<Mouse>/backButton",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Aumentar",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "4710f572-9abe-4e73-815c-76a17d89f0c8",

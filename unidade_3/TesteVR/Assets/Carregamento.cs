@@ -9,10 +9,12 @@ public class Carregamento : MonoBehaviour
     private static int contador = 0;
     public Image ima = null;
     private static int passo = 500;
+    public bool encheu = false;
 
     public bool teste = false;
     void Start()
     {
+        encheu = false;
         ima.enabled = false;
     }
 
@@ -25,6 +27,7 @@ public class Carregamento : MonoBehaviour
 
     public void SaiCarregamento()
     {
+        encheu = false;
         Debug.Log("Saio Imagen");
         malOlhado = false;
         contador = 0;
@@ -41,5 +44,10 @@ public class Carregamento : MonoBehaviour
             contador = 0;
         }
         ima.fillAmount = contador * (1f/passo);
+        if((contador * (1f / passo)) >= 0.99)
+        {
+            encheu = true;
+        }
+
     }
 }

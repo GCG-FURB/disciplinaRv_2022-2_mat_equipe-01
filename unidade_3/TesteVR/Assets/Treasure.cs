@@ -13,7 +13,6 @@ public class Treasure : MonoBehaviour
     Debug.Log("Ola mundao");
     controle = new ComtroleJogador();
 
-    controle.Gameplay.Aumentar.performed += ctx => Aumentar();
   }
 
   private void Aumentar()

@@ -9,43 +9,59 @@ public class Arma : MonoBehaviour
     ComtroleJogador controle;
     public AudioSource audioS;
     public AudioClip soundTiro;
+    public AudioClip soundSpray;
     private bool isSelecionado;
 
      Carregamento car;
 
   private void Awake() {
+
     isSelecionado = false;
-    Debug.Log("Ola arma");
     controle = new ComtroleJogador();
     //audioS = GetComponent<AudioSource>();
     car = (Carregamento)gameObject.GetComponent(typeof(Carregamento));
-    controle.Gameplay.AcionaArma.performed += ctx => Aumentar();
+    controle.Gameplay.AcionaArma.performed += ctx => Acionar();
   }
 
-  private void Aumentar()
-  {
-    Debug.Log("nao armao");
-    //this.transform.localScale *= 1.1f;
+    public void Update()
+    {
+        if(car.encheu == true)
+        {
+            Debug.Log("Entrouuuuuuuuuuuuuuuuuuuuu");
+            SelecionaArma();
+            car.encheu = false;
+        }
+        
+    }
 
-    audioS.PlayOneShot(soundTiro);
-    Debug.Log("Testando interaçã entre scripts "+car.teste);
-    
-  }
+    private void Acionar()
+    {
+        Debug.Log("SELECIONADO no acionar" + isSelecionado);
+        audioS.PlayOneShot(soundSpray);
+        if (isSelecionado)
+        {
+          audioS.PlayOneShot(soundTiro);
+        }
+
+    }
 
    public void SelecionaArma()
     {
         isSelecionado = true;
-        Debug.Log("Tiro");
-        Aumentar();
     }
-    public void DesselecionaArma()
+    // public void DesselecionaArma()
+    //{
+    // Debug.Log("Saiu da arma");
+    // isSelecionado = false;
+    // }
+    public void OnPointerEnter()
     {
-        Debug.Log("Saiu da arma");
-        isSelecionado = false;
+        
     }
     public void OnPointerExit()
     {
         isSelecionado = false;
+        car.encheu = false;
         Debug.Log("Saiu da arma 2");
     }
 
@@ -53,8 +69,8 @@ public class Arma : MonoBehaviour
 
     private void OnEnable() {
      controle.Gameplay.Enable();
-  }
-  private void OnDisable() {
+    }
+    private void OnDisable() {
     controle.Gameplay.Disable();
-  }
+    }
 }
