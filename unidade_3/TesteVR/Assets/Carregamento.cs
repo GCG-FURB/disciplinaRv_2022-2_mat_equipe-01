@@ -10,6 +10,7 @@ public class Carregamento : MonoBehaviour
     public Image ima = null;
     private static int passo = 500;
     public bool encheu = false;
+    public Arma arma;
 
     public bool teste = false;
     void Start()
@@ -27,8 +28,10 @@ public class Carregamento : MonoBehaviour
 
     public void SaiCarregamento()
     {
+        arma = (Arma)gameObject.GetComponent(typeof(Arma));
+        Arma.isSelecionado = false;
         encheu = false;
-        Debug.Log("Saio Imagen");
+        Debug.Log("Saio Imagem");
         malOlhado = false;
         contador = 0;
         ima.enabled = false;

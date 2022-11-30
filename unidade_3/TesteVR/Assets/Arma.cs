@@ -10,7 +10,7 @@ public class Arma : MonoBehaviour
     public AudioSource audioS;
     public AudioClip soundTiro;
     public AudioClip soundSpray;
-    private bool isSelecionado;
+    public static bool isSelecionado;
 
      Carregamento car;
 
@@ -27,7 +27,7 @@ public class Arma : MonoBehaviour
     {
         if(car.encheu == true)
         {
-            Debug.Log("Entrouuuuuuuuuuuuuuuuuuuuu");
+            Debug.Log("Entrouuuuuuuuuuuuuuuuuuuuu: "+ car.encheu +" "+ isSelecionado);
             SelecionaArma();
             car.encheu = false;
         }
@@ -40,13 +40,15 @@ public class Arma : MonoBehaviour
         audioS.PlayOneShot(soundSpray);
         if (isSelecionado)
         {
-          audioS.PlayOneShot(soundTiro);
+            Debug.Log("Acionaaar: " + car.encheu + " " + isSelecionado);
+            audioS.PlayOneShot(soundTiro);
         }
 
     }
 
    public void SelecionaArma()
     {
+        Debug.Log("public void SelecionaArma()");
         isSelecionado = true;
     }
     // public void DesselecionaArma()
@@ -56,13 +58,18 @@ public class Arma : MonoBehaviour
     // }
     public void OnPointerEnter()
     {
-        
+        Debug.Log("onpointerenterArma");
     }
     public void OnPointerExit()
     {
         isSelecionado = false;
         car.encheu = false;
         Debug.Log("Saiu da arma 2");
+    }
+
+    public void testar()
+    {
+        Debug.Log("TESTEEEEEEEEEEEEEEEEEEEEEEEE");
     }
 
 
