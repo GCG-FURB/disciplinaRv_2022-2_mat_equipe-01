@@ -44,6 +44,8 @@ public class ObjectController : MonoBehaviour
 
     private Audio ad;
 
+    ComtroleJogador controle;
+
     private Renderer _myRenderer;
     private Vector3 _startingPosition;
 
@@ -54,7 +56,9 @@ public class ObjectController : MonoBehaviour
     {
         _startingPosition = transform.parent.localPosition;
         _myRenderer = GetComponent<Renderer>();
+        controle = new ComtroleJogador();
         SetMaterial(false);
+        controle.Gameplay.Testar.performed += ctx => TestarControle();
     }
 
     /// <summary>
@@ -107,6 +111,11 @@ public class ObjectController : MonoBehaviour
     public void OnPointerClick()
     {
         TeleportRandomly();
+    }
+
+    public void TestarControle()
+    {
+        SetMaterial(true);
     }
 
 

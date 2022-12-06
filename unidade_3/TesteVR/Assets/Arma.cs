@@ -21,7 +21,8 @@ public class Arma : MonoBehaviour
     //audioS = GetComponent<AudioSource>();
     car = (Carregamento)gameObject.GetComponent(typeof(Carregamento));
     controle.Gameplay.AcionaArma.performed += ctx => Acionar();
-  }
+    controle.Gameplay.Testar.performed += ctx => TestaSom();
+    }
 
     public void Update()
     {
@@ -44,6 +45,11 @@ public class Arma : MonoBehaviour
             audioS.PlayOneShot(soundTiro);
         }
 
+    }
+
+    private void TestaSom()
+    {
+        audioS.PlayOneShot(soundSpray);
     }
 
    public void SelecionaArma()

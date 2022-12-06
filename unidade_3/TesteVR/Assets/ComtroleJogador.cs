@@ -35,6 +35,15 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Testar"",
+                    ""type"": ""Button"",
+                    ""id"": ""a91ae9d5-d33a-4264-8ad1-896dc6f60798"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,17 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
                     ""action"": ""AcionaArma"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58400970-4a2a-4db9-a337-1d3dd5b23904"",
+                    ""path"": ""<HID::YiChip BT KB>/button2"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Testar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +77,7 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_AcionaArma = m_Gameplay.FindAction("AcionaArma", throwIfNotFound: true);
+        m_Gameplay_Testar = m_Gameplay.FindAction("Testar", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -117,11 +138,13 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_AcionaArma;
+    private readonly InputAction m_Gameplay_Testar;
     public struct GameplayActions
     {
         private @ComtroleJogador m_Wrapper;
         public GameplayActions(@ComtroleJogador wrapper) { m_Wrapper = wrapper; }
         public InputAction @AcionaArma => m_Wrapper.m_Gameplay_AcionaArma;
+        public InputAction @Testar => m_Wrapper.m_Gameplay_Testar;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -134,6 +157,9 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
                 @AcionaArma.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAcionaArma;
                 @AcionaArma.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAcionaArma;
                 @AcionaArma.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAcionaArma;
+                @Testar.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTestar;
+                @Testar.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTestar;
+                @Testar.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTestar;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -141,6 +167,9 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
                 @AcionaArma.started += instance.OnAcionaArma;
                 @AcionaArma.performed += instance.OnAcionaArma;
                 @AcionaArma.canceled += instance.OnAcionaArma;
+                @Testar.started += instance.OnTestar;
+                @Testar.performed += instance.OnTestar;
+                @Testar.canceled += instance.OnTestar;
             }
         }
     }
@@ -148,5 +177,6 @@ public partial class @ComtroleJogador : IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnAcionaArma(InputAction.CallbackContext context);
+        void OnTestar(InputAction.CallbackContext context);
     }
 }
